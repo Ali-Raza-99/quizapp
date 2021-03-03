@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<!-- Based on https://github.com/jrue/JavaScript-Quiz by Jeremy Rue -->
+
+<html>
+
+<head>
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data: gap: https://ssl.gstatic.com content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" media="all" href="css/dotsMenu.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/app.css">
+    <title>QuizApp</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyBlJRVxQMQT4O9pRYxBKB_I3Y_MNYVnvsg",
+          authDomain: "quiz-b023e.firebaseapp.com",
+          databaseURL: "https://quiz-b023e-default-rtdb.firebaseio.com",
+          projectId: "quiz-b023e",
+          storageBucket: "quiz-b023e.appspot.com",
+          messagingSenderId: "79883843363",
+          appId: "1:79883843363:web:fb07cfcd7b69e01fc87e96",
+          measurementId: "G-0LSM86C850"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+      </script>
+</head>
+
+<body>
+	<div class="header">
+		<!-- three dot menu -->
+		<div class="dropdown">
+			<!-- three dots -->
+			<ul class="dropbtn icons btn-right showLeft" onclick="showDropdown()">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<!-- menu -->
+			<div id="myDropdown" class="dropdown-content">
+				<a id="setQuizSize" onclick="setQuizSize()">set size</a>
+				<a id="genBulk" onclick="generateBulk()">all Q</a>
+			</div>
+		</div>
+	</div>
+	
+		<div class="bgbg">
+			<div id="frame" role="content"></div>
+        <hr/>
+        <div id="myProgress">
+            <div id="loader"></div>
+            <div align="center" id="fetchingQ"></div>
+        </div>
+    </div>
+    <br/>
+
+    <center>
+		<div id="qNumText"></div>
+		<hr/>
+        <br />
+		<a href="https://github.com/Ali-Raza321" target="_blank">
+		Aliraza
+		</a>
+    </center>
+	<br/><br/><br/><br/>
+	 <div class="menu" align="center">
+        <table  align="center">
+            <tr>
+                <td>
+                    <button class="simpleBtn" id="newquiz" onClick="populateQuiz()"></button>
+                </td>
+                <td>
+                    <button class="simpleBtn" id="reportMistake" onClick="reportMistake()"></button>
+                </td>
+            </tr>
+        </table>
+	</div>
+</body>
+
+</html>
